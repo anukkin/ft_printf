@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 18:53:32 by abasterr          #+#    #+#             */
-/*   Updated: 2022/12/08 10:07:30 by abasterr         ###   ########.fr       */
+/*   Created: 2022/09/20 13:59:41 by abasterr          #+#    #+#             */
+/*   Updated: 2022/12/08 10:03:21 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_printf(char const *str, ...)
-{
-	va_list	args;
-	int		i;
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	va_start(args, str);
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			i++;
-			if (str[i] == 'c')
-			{
-				
-			}
-		}
-	}
+int		ft_putchar(char c);
 
 
-
-}
+#endif

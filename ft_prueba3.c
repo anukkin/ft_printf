@@ -15,17 +15,17 @@
 
 double	vadd(int num_args, va_list args)
 {
-	double	valor;
+	double	total;
 	int		i;
 
 	i = 0;
-	valor = 0.0f;
+	total = 0.0f;
 	while (i < num_args)
 	{
-		valor = valor + va_arg (args, double);
+		total = total + va_arg (args, double);
 		i++;
 	}
-	return (valor);
+	return (total);
 }
 
 double	front_add(int num_args, ...)
