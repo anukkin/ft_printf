@@ -6,7 +6,7 @@
 #    By: abasterr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 14:13:01 by abasterr          #+#    #+#              #
-#    Updated: 2022/12/08 09:58:57 by abasterr         ###   ########.fr        #
+#    Updated: 2023/01/04 12:59:18 by abasterr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ RM = rm -rf
 
 SRC = ft_printf.c\
 			Libft/ft_putchar.c\
+			Libft/ft_putstr.c\
+			Libft/ft_putnbr.c\
+
 		
 
 OBJS = $(SRC:.c=.o)
