@@ -6,49 +6,65 @@
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:53:32 by abasterr          #+#    #+#             */
-/*   Updated: 2023/01/04 13:42:41 by abasterr         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:35:55 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *str, ...)
+int	ft_checkformat(char const *str, va_list args, size_t i, int count)
 {
-	va_list	args;
-	int		i;
 
-	if (!str)
-		return (0);
+	if (str[i + 1] == 'c')
+		count += ft_putchar(va_arg(args, int));
+	if (str[i + 1] == 's')
+		count += ft_putstr(va_arg(args, char *));
+//	if (str[i] == 'p')		
+	if (str[i + 1] == 'd' || str[i + 1] == 'i')
+		count += ft_putnbr_base(va_arg(args, int), "0123456789");
+	if (str[i + 1] == 'u')
+		count += ft_unputnbr_base(va_arg(args, int), "0123456789");			
+	if (str[i + 1] == 'x')
+		count += ft_unputnbr_base(va_arg(args, int), "0123456789abcdef");
+	if (str[i + 1] == 'X')
+		count += ft_unputnbr_base(va_arg(args, int), "0123456789ABCDEF");				
+	if (str[i + 1] == '%')
+		count += ft_putchar('%');
+	return (count);
+
+}
+
+int ft_printstr(char const *str, va_list args)
+{
+	size_t i;
+	int count;
 
 	i = 0;
-	va_start(args, str);
+	count = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
+			count = ft_checkformat(str, args, i, count);
 			i++;
-			if (str[i] == 'c')
-				ft_putchar(va_arg(args, int));
-			if (str[i] == 's')
-				ft_putstr(va_arg(args, char *));
-			//if (str[i] == 'p')
-				
-			if (str[i] == 'd' || str[i] == 'i')
-				ft_putnbr(va_arg(args, int));
-			if (str[i] == 'u')
-				
-			if (str[i] == 'x')
-				
-			if (str[i] == 'X')
-				
-			if (str[i] == '%')
-				ft_putchar('%');
 		}
 		else
-			ft_putchar(str[i]);
+			count += ft_putchar(str[i]);
 		i++;
 	}
+	return(count);
+}
 
+int	ft_printf(char const *str, ...)
+{
+	va_list	args;
+	int		count;
+
+	if (!str)
+		return (0);
+	count = 0;
+	va_start(args, str);
+	count = ft_printstr(str, args);
 	va_end(args);
-	return (0);
+	return (count);
 }

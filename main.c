@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 13:59:41 by abasterr          #+#    #+#             */
-/*   Updated: 2023/01/05 14:25:01 by abasterr         ###   ########.fr       */
+/*   Created: 2023/01/05 10:04:26 by abasterr          #+#    #+#             */
+/*   Updated: 2023/01/05 14:39:23 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_printf.h"
+#include<stdio.h>
 
-# include <unistd.h>
-# include <stdarg.h>
+int main()
+{
+	int i;
+	int	a;
+	int	*ptr;
+	
+	i = 0;
+	a=10;
+	ptr=&a;
+	//i = ft_printf("ala%uala%s\n", -1234, "a ver");
+	//ft_printf("%d\n", i);
+	printf("ala%uala%s\n", -3, "a ver");
 
-int		ft_putchar(int c);
-int		ft_putstr(char *str);
-int		ft_putnbr_base(int nbr, char *base);
-size_t	ft_strlen(const char *s);
-int		ft_unputnbr_base(unsigned long int nbr, char *base);
 
-#endif
+}

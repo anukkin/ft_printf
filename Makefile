@@ -6,7 +6,7 @@
 #    By: abasterr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 14:13:01 by abasterr          #+#    #+#              #
-#    Updated: 2023/01/04 12:59:18 by abasterr         ###   ########.fr        #
+#    Updated: 2023/01/05 14:24:59 by abasterr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ RM = rm -rf
 SRC = ft_printf.c\
 			Libft/ft_putchar.c\
 			Libft/ft_putstr.c\
-			Libft/ft_putnbr.c\
+			Libft/ft_putnbr_base.c\
+			Libft/ft_strlen.c\
+			Libft/ft_unputnbr_base.c\
 
 		
 

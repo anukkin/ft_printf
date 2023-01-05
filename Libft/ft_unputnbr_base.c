@@ -1,48 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_unputnbr_base.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:57:39 by abasterr          #+#    #+#             */
-/*   Updated: 2023/01/04 13:38:06 by abasterr         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:27:46 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(int n)
+int	ft_unputnbr_base(unsigned long int nbr, char *base)
 {
-	unsigned int	nbr;
+	int				count;
+	unsigned int	base_len;
+	unsigned int	n;
 
-	nbr = 0;
-	if (n == -2147483648)
-	{
-		nbr += ft_putchar('-');
-		nbr += ft_putchar('2');
-	}
-	if (n < 0)
-	{
-		n = n * (-1);
-		nbr += ft_putchar('-');
-		nbr += ft_putnbr(n);
-	}
-	if (n < 10)
-	{
-		n = n + '0';
-		nbr += ft_putchar(n);
-	}
+	count = 0;
+	base_len = ft_strlen(base);
+	n = nbr;
+	if (n < base_len)
+		count += ft_putchar(base[n]);
 	else
 	{
-		nbr += ft_putnbr(n / 10);
-		nbr += ft_putnbr(n % 10);
+		count += ft_unputnbr_base(n / base_len, base);
+		count += ft_unputnbr_base(n % base_len, base);
 	}
-	return (nbr);
-}
-
-int main()
-{
-		ft_putnbr(1);
-	return (0);
+	return (count);
 }
