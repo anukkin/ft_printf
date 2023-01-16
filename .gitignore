@@ -5,3 +5,5 @@ libft-war-machine/
 *.o
 *.swp
 *.a
+ft_printf_tester/
+printfTester/
