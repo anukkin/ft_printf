@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prueba.c                                        :+:      :+:    :+:   */
+/*   ft_ptr_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 18:53:32 by abasterr          #+#    #+#             */
-/*   Updated: 2022/12/06 13:16:49 by abasterr         ###   ########.fr       */
+/*   Created: 2023/01/17 17:26:38 by abasterr          #+#    #+#             */
+/*   Updated: 2023/01/17 19:51:30 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
+#include "libft.h"
 
-double	add(int num_args, ...);
-
-int	main(void)
+int	ft_ptr_hex(void *ptr, char *base)
 {
-	double	x;
+	unsigned long	nbr;
+	int				count;
 
-	x = add(5, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f);
-	printf("%f", x);
-	return (0);
-}
-
-double	add(int num_args, ...)
-{
-
-	double	total;
-	int		i;
-	va_list	args;
-
-	i = 0;
-	total = 0.0f;
-	va_start(args, num_args);
-	while (i < num_args)
-	{
-		total = total + va_arg(args, double);
-		i++;
-	}
-	va_end(args);
-	return (total);
+	nbr = (unsigned long)ptr;
+	count = 2;
+	write(1, "0x", 2);
+	if (!nbr)
+		count += write(1, "0", 1);
+	else
+		count += ft_unputnbr_base(nbr, base);
+	return (count);
 }

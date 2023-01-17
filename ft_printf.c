@@ -6,7 +6,7 @@
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:53:32 by abasterr          #+#    #+#             */
-/*   Updated: 2023/01/16 19:10:06 by abasterr         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:57:08 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ int	ft_checkformat(char const *str, va_list args, size_t i, int count)
 		count += ft_putchar(va_arg(args, int));
 	if (str[i + 1] == 's')
 		count += ft_putstr(va_arg(args, char *));
-//	if (str[i] == 'p')
+	if (str[i + 1] == 'p')
+		count += ft_ptr_hex(va_arg(args, void *), HEX_LOWER);
 	if (str[i + 1] == 'd' || str[i + 1] == 'i')
-		count += ft_putnbr_base(va_arg(args, int), "0123456789");
+		count += ft_putnbr_base(va_arg(args, int), DECIMAL);
 	if (str[i + 1] == 'u')
-		count += ft_unputnbr_base(va_arg(args, int), "0123456789");
+		count += ft_unputnbr_base(va_arg(args, unsigned int), DECIMAL);
 	if (str[i + 1] == 'x')
-		count += ft_unputnbr_base(va_arg(args, int), "0123456789abcdef");
+		count += ft_unputnbr_base(va_arg(args, unsigned int), HEX_LOWER);
 	if (str[i + 1] == 'X')
-		count += ft_unputnbr_base(va_arg(args, int), "0123456789ABCDEF");
+		count += ft_unputnbr_base(va_arg(args, unsigned int), HEX_UPPER);
 	if (str[i + 1] == '%')
 		count += ft_putchar('%');
 	return (count);

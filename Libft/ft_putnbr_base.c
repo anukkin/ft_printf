@@ -6,7 +6,7 @@
 /*   By: abasterr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:57:39 by abasterr          #+#    #+#             */
-/*   Updated: 2023/01/05 14:25:05 by abasterr         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:41:57 by abasterr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 int	ft_putnbr_base(int nbr, char *base)
 {
 	int	count;
-	int base_len;
-
+	int	base_len;
 
 	count = 0;
 	base_len = ft_strlen(base);
