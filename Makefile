@@ -6,7 +6,7 @@
 #    By: abasterr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 14:13:01 by abasterr          #+#    #+#              #
-#    Updated: 2023/01/17 19:52:04 by abasterr         ###   ########.fr        #
+#    Updated: 2023/01/19 17:31:41 by abasterr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,6 @@ SRC = ft_printf.c\
 			Libft/ft_strlen.c\
 			Libft/ft_unputnbr_base.c\
 			Libft/ft_ptr_hex.c\
-
-
-		
 
 OBJS = $(SRC:.c=.o)
 
